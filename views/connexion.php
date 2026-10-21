@@ -18,6 +18,8 @@
         .announcement span, .brand-mark { color: #aebf4c; }
         header { display: flex; align-items: center; justify-content: space-between; width: min(1320px, calc(100% - 64px)); height: 82px; margin: 0 auto; border-bottom: 1px solid var(--line); }
         .brand { font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.09em; }
+        .main-nav { display: flex; align-items: center; gap: 18px; }
+        .main-nav a { font-size: 12px; font-weight: 600; white-space: nowrap; }
         .header-link { font-size: 13px; font-weight: 600; }
         main { display: grid; grid-template-columns: 1fr 1fr; width: min(1100px, calc(100% - 64px)); min-height: 650px; margin: 0 auto; padding: 56px 0; }
         .form-side { display: flex; align-items: center; justify-content: center; padding: 32px clamp(20px, 5vw, 70px); }
@@ -47,7 +49,7 @@
         .visual-caption strong { display: block; margin-bottom: 5px; font-family: var(--display); font-size: 18px; }
         .visual-caption span { color: var(--muted); font-size: 11px; }
         footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: min(1320px, calc(100% - 64px)); min-height: 75px; margin: 0 auto; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
-        @media (max-width: 760px) { header, footer { width: calc(100% - 36px); } header { height: 68px; } main { grid-template-columns: 1fr; width: calc(100% - 36px); padding: 32px 0; } .form-side { padding: 34px 8px 45px; } .visual { min-height: 300px; } }
+        @media (max-width: 760px) { header, footer { width: calc(100% - 36px); } header { height: auto; min-height: 68px; flex-wrap: wrap; gap: 12px; padding: 10px 0; } .main-nav { order: 3; flex: 0 0 100%; gap: 18px; overflow-x: auto; padding-bottom: 4px; } main { grid-template-columns: 1fr; width: calc(100% - 36px); padding: 32px 0; } .form-side { padding: 34px 8px 45px; } .visual { min-height: 300px; } }
         @media (max-width: 460px) { .announcement { font-size: 9px; } footer { align-items: flex-start; flex-direction: column; justify-content: center; padding: 15px 0; } }
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
     </style>
@@ -56,7 +58,12 @@
     <div class="announcement">Livraison offerte dès 120 € <span>—</span> retours gratuits sous 30 jours</div>
     <header>
         <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <a class="header-link" href="/views/inscription.php">Créer un compte</a>
+        <nav class="main-nav" aria-label="Navigation principale">
+            <a href="/catalogue">La collection</a>
+            <a href="/produit">Un produit</a>
+            <a href="/about">Notre histoire</a>
+            <a href="/inscription">Créer un compte</a>
+        </nav>
     </header>
     <main>
         <section class="form-side">
@@ -82,7 +89,7 @@
                     </div>
                     <button class="submit" type="submit">Me connecter <span aria-hidden="true">↗</span></button>
                 </form>
-                <p class="switch">Pas encore de compte ? <a href="/views/inscription.php">Inscris-toi</a></p>
+                <p class="switch">Pas encore de compte ? <a href="/inscription">Inscris-toi</a></p>
             </div>
         </section>
         <aside class="visual" aria-label="Sneaker mise en avant">

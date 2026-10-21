@@ -17,6 +17,8 @@
         .announcement span, .brand-mark { color: #aebf4c; }
         header { display: flex; align-items: center; justify-content: space-between; width: min(1320px, calc(100% - 64px)); height: 82px; margin: 0 auto; border-bottom: 1px solid #e7e6df; }
         .brand { font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.09em; }
+        .main-nav { display: flex; align-items: center; gap: 18px; }
+        .main-nav a { font-size: 12px; font-weight: 600; white-space: nowrap; }
         .header-link { font-size: 13px; font-weight: 600; }
         main { display: grid; flex: 1; place-items: center; padding: 60px 20px; text-align: center; }
         .error-content { max-width: 590px; }
@@ -28,7 +30,7 @@
         .button:hover { transform: translateY(-2px); background: transparent; color: var(--ink); }
         .button span { font-size: 18px; }
         footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: min(1320px, calc(100% - 64px)); min-height: 95px; margin: 0 auto; color: var(--muted); font-size: 11px; }
-        @media (max-width: 600px) { .announcement { font-size: 9px; } header, footer { width: calc(100% - 36px); } header { height: 68px; } footer { align-items: flex-start; flex-direction: column; justify-content: center; padding: 18px 0; } }
+        @media (max-width: 600px) { .announcement { font-size: 9px; } header, footer { width: calc(100% - 36px); } header { height: auto; min-height: 68px; flex-wrap: wrap; gap: 12px; padding: 10px 0; } .main-nav { order: 3; flex: 0 0 100%; gap: 18px; overflow-x: auto; padding-bottom: 4px; } footer { align-items: flex-start; flex-direction: column; justify-content: center; padding: 18px 0; } }
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } }
     </style>
 </head>
@@ -36,7 +38,13 @@
     <div class="announcement">Livraison offerte dès 120 € <span>—</span> retours gratuits sous 30 jours</div>
     <header>
         <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <a class="header-link" href="/about">Notre histoire</a>
+        <nav class="main-nav" aria-label="Navigation principale">
+            <a href="/catalogue">La collection</a>
+            <a href="/produit">Un produit</a>
+            <a href="/about">Notre histoire</a>
+            <a href="/connexion">Connexion</a>
+            <a href="/inscription">Créer un compte</a>
+        </nav>
     </header>
     <main>
         <div class="error-content">

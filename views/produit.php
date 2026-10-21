@@ -19,8 +19,8 @@
         .announcement span, .brand-mark { color: #aebf4c; }
         header { display: flex; align-items: center; justify-content: space-between; width: min(1320px, calc(100% - 64px)); height: 82px; margin: 0 auto; border-bottom: 1px solid var(--line); }
         .brand { font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.09em; }
-        .main-nav, .header-actions { display: flex; align-items: center; gap: 28px; }
-        .main-nav a, .header-actions a { font-size: 13px; font-weight: 600; }
+        .main-nav { display: flex; align-items: center; gap: 20px; }
+        .main-nav a { font-size: 12px; font-weight: 600; white-space: nowrap; }
         .bag-count { display: inline-grid; width: 22px; height: 22px; margin-left: 6px; place-items: center; border-radius: 50%; background: var(--lime); font-size: 11px; }
         main { width: min(1240px, calc(100% - 64px)); margin: 0 auto; padding: 28px 0 84px; }
         .breadcrumbs { display: flex; gap: 9px; margin-bottom: 28px; color: var(--muted); font-size: 11px; }
@@ -70,10 +70,8 @@
         @media (max-width: 760px) {
             .announcement { font-size: 9px; }
             header, footer { width: calc(100% - 36px); }
-            header { height: 68px; }
-            .main-nav { display: none; }
-            .header-actions { gap: 12px; }
-            .header-actions a:first-child { display: none; }
+            header { height: auto; min-height: 68px; flex-wrap: wrap; gap: 12px; padding: 10px 0; }
+            .main-nav { order: 3; flex: 0 0 100%; gap: 18px; overflow-x: auto; padding-bottom: 4px; }
             main { width: calc(100% - 36px); padding: 22px 0 60px; }
             .product-layout { grid-template-columns: 1fr; gap: 24px; }
             .product-details { padding-top: 0; }
@@ -88,11 +86,16 @@
     <div class="announcement">Livraison offerte dès 120 € <span>—</span> retours gratuits sous 30 jours</div>
     <header>
         <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <nav class="main-nav" aria-label="Navigation principale"><a href="/views/catalogue.php">La collection</a><a href="/about">Notre histoire</a></nav>
-        <div class="header-actions"><a href="/views/connexion.php">Connexion</a><a href="#">Panier <span class="bag-count">0</span></a></div>
+        <nav class="main-nav" aria-label="Navigation principale">
+            <a href="/">Accueil</a>
+            <a href="/catalogue">La collection</a>
+            <a href="/about">Notre histoire</a>
+            <a href="/connexion">Connexion</a>
+            <a href="/inscription">Créer un compte</a>
+        </nav>
     </header>
     <main>
-        <nav class="breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>/</span><a href="/views/catalogue.php">La collection</a><span>/</span><span aria-current="page">Air Max 90</span></nav>
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>/</span><a href="/catalogue">La collection</a><span>/</span><span aria-current="page">Air Max 90</span></nav>
         <section class="product-layout">
             <div class="gallery">
                 <div class="gallery-main">
@@ -136,9 +139,9 @@
                 <div class="product-notes"><div class="product-note">Authenticité vérifiée</div><div class="product-note">Paiement sécurisé</div><div class="product-note">Retours gratuits</div></div>
             </div>
         </section>
-        <section class="related"><h2>Envie d'explorer ?</h2><a class="related-link" href="/views/catalogue.php">Retour à la collection <span aria-hidden="true">↗</span></a></section>
+        <section class="related"><h2>Envie d'explorer ?</h2><a class="related-link" href="/catalogue">Retour à la collection <span aria-hidden="true">↗</span></a></section>
     </main>
-    <footer><a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a><span>© 2026 Sneakstock. Fait pour les passionnés.</span><a href="/views/inscription.php">Créer un compte</a></footer>
+    <footer><a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a><span>© 2026 Sneakstock. Fait pour les passionnés.</span><a href="/inscription">Créer un compte</a></footer>
     <style>.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }</style>
     <script>
         const mainImage = document.querySelector('#main-image');

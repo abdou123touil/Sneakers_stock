@@ -19,8 +19,8 @@
         .announcement span, .brand-mark { color: #aebf4c; }
         header { display: flex; align-items: center; justify-content: space-between; width: min(1320px, calc(100% - 64px)); height: 82px; margin: 0 auto; border-bottom: 1px solid var(--line); }
         .brand { font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.09em; }
-        .main-nav, .header-actions { display: flex; align-items: center; gap: 28px; }
-        .main-nav a, .header-actions a { font-size: 13px; font-weight: 600; }
+        .main-nav { display: flex; align-items: center; gap: 20px; }
+        .main-nav a { font-size: 12px; font-weight: 600; white-space: nowrap; }
         .bag-count { display: inline-grid; width: 22px; height: 22px; margin-left: 6px; place-items: center; border-radius: 50%; background: var(--lime); font-size: 11px; }
         main { width: min(1320px, calc(100% - 64px)); margin: 0 auto; padding: 58px 0 90px; }
         .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 15px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
@@ -45,14 +45,12 @@
         .product-info p { margin: 0; color: var(--muted); font-size: 11px; }
         .price { font-size: 12px; font-weight: 700; white-space: nowrap; }
         footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: min(1320px, calc(100% - 64px)); min-height: 95px; margin: 0 auto; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
-        @media (max-width: 900px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .main-nav { gap: 16px; } }
+        @media (max-width: 900px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .main-nav { gap: 14px; } }
         @media (max-width: 650px) {
             .announcement { font-size: 9px; }
             header, footer { width: calc(100% - 36px); }
-            header { height: 68px; }
-            .main-nav { display: none; }
-            .header-actions { gap: 12px; }
-            .header-actions a:first-child { display: none; }
+            header { height: auto; min-height: 68px; flex-wrap: wrap; gap: 12px; padding: 10px 0; }
+            .main-nav { order: 3; flex: 0 0 100%; gap: 18px; overflow-x: auto; padding-bottom: 4px; }
             main { width: calc(100% - 36px); padding: 42px 0 60px; }
             .toolbar { align-items: flex-start; flex-direction: column; }
             .filters { gap: 7px; }
@@ -71,10 +69,12 @@
     <header>
         <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
         <nav class="main-nav" aria-label="Navigation principale">
-            <a href="/views/catalogue.php" aria-current="page">La collection</a>
+            <a href="/catalogue" aria-current="page">La collection</a>
             <a href="/about">Notre histoire</a>
+            <a href="/produit">Un produit</a>
+            <a href="/connexion">Connexion</a>
+            <a href="/inscription">Créer un compte</a>
         </nav>
-        <div class="header-actions"><a href="/views/connexion.php">Connexion</a><a href="#">Panier <span class="bag-count">0</span></a></div>
     </header>
     <main>
         <p class="eyebrow">La sélection Sneakstock</p>
@@ -98,41 +98,15 @@
         </div>
         <p class="result-count" aria-live="polite"><span id="result-number">8</span> paires à découvrir</p>
         <section class="product-grid" aria-label="Sneakers disponibles">
-            <a class="product-card" data-category="classic" data-price="149" href="/views/produit.php">
-                <div class="product-image"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Sneaker rouge et blanche" loading="lazy"><span class="product-label">Best-seller</span></div>
-                <div class="product-info"><div><h2>Air Max 90</h2><p>Red / White</p></div><span class="price">149 €</span></div>
+            <?php foreach($produits as $produit) :?>
+            <a class="product-card" data-category="<?= $produit["categorie"] ?>" data-price="<?= $produit["prix"] ?>" href="/produit">
+                <div class="product-image"><img src="<?= $produit["image"] ?>" alt="<?= $produit["nom"] ?>" loading="lazy"><span class="product-label"><?= $produit["label"] ?></span></div>
+                <div class="product-info"><div><h2><?= $produit["nom"] ?></h2><p><?= $produit["coloris"] ?></p></div><span class="price"><?= $produit["prix"] ?> €</span></div>
             </a>
-            <a class="product-card" data-category="new" data-price="119" href="/views/produit.php">
-                <div class="product-image"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Sneaker blanche à semelle épaisse" loading="lazy"><span class="product-label">Nouveau</span></div>
-                <div class="product-info"><div><h2>Court Vision</h2><p>White / Sail</p></div><span class="price">119 €</span></div>
-            </a>
-            <a class="product-card" data-category="limited" data-price="135" href="/views/produit.php">
-                <div class="product-image"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Sneaker lifestyle au design rétro" loading="lazy"><span class="product-label">Édition limitée</span></div>
-                <div class="product-info"><div><h2>Retro Runner</h2><p>Vintage / Cream</p></div><span class="price">135 €</span></div>
-            </a>
-            <a class="product-card" data-category="classic" data-price="110" href="/views/produit.php">
-                <div class="product-image"><img src="https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Sneaker urbaine noire et blanche" loading="lazy"><span class="product-label">Coup de cœur</span></div>
-                <div class="product-info"><div><h2>Street Low</h2><p>Black / Off-white</p></div><span class="price">110 €</span></div>
-            </a>
-            <a class="product-card" data-category="new" data-price="129" href="/views/produit.php">
-                <div class="product-image"><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Sneaker de running blanche et rouge" loading="lazy"><span class="product-label">Nouveau</span></div>
-                <div class="product-info"><div><h2>Club Classic</h2><p>White / Red</p></div><span class="price">129 €</span></div>
-            </a>
-            <a class="product-card" data-category="classic" data-price="125" href="/views/produit.php">
-                <div class="product-image"><img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Sneaker classique en toile" loading="lazy"><span class="product-label">Intemporel</span></div>
-                <div class="product-info"><div><h2>Canvas One</h2><p>Natural / Gum</p></div><span class="price">125 €</span></div>
-            </a>
-            <a class="product-card" data-category="limited" data-price="160" href="/views/produit.php">
-                <div class="product-image"><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Édition spéciale de sneaker urbaine" loading="lazy"><span class="product-label">Édition limitée</span></div>
-                <div class="product-info"><div><h2>Studio 02</h2><p>Stone / Olive</p></div><span class="price">160 €</span></div>
-            </a>
-            <a class="product-card" data-category="new" data-price="140" href="/views/produit.php">
-                <div class="product-image"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Sneaker blanche au style moderne" loading="lazy"><span class="product-label">Nouveau</span></div>
-                <div class="product-info"><div><h2>Everyday 04</h2><p>Cloud / Grey</p></div><span class="price">140 €</span></div>
-            </a>
+            <?php endforeach; ?>
         </section>
     </main>
-    <footer><a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a><span>© 2026 Sneakstock. Fait pour les passionnés.</span><a href="/views/inscription.php">Créer un compte</a></footer>
+    <footer><a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a><span>© 2026 Sneakstock. Fait pour les passionnés.</span><a href="/inscription">Créer un compte</a></footer>
     <style>.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }</style>
     <script>
         const grid = document.querySelector('.product-grid');

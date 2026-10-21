@@ -418,9 +418,11 @@
         </button>
         <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
         <nav class="main-nav" aria-label="Navigation principale">
-            <a href="#collection">La collection</a>
-            <a href="#selection">Nouveautés</a>
+            <a href="/catalogue">La collection</a>
+            <a href="/produit">Un produit</a>
             <a href="/about">Notre histoire</a>
+            <a href="/connexion">Connexion</a>
+            <a href="/inscription">Créer un compte</a>
         </nav>
         <div class="header-actions">
             <a href="#selection">Rechercher</a>

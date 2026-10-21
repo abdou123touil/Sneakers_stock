@@ -77,7 +77,7 @@
         }
         @media (max-width: 460px) {
             .site-header { justify-content: space-between; }
-            .main-nav { position: absolute; top: 67px; right: -18px; left: -18px; justify-content: center; padding: 15px; border-bottom: 1px solid var(--line); background: var(--paper); }
+            .main-nav { position: absolute; top: 67px; right: -18px; left: -18px; justify-content: flex-start; gap: 16px; overflow-x: auto; padding: 15px; border-bottom: 1px solid var(--line); background: var(--paper); }
             .brand { font-size: 20px; }
         }
         @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
@@ -88,14 +88,12 @@
     <header class="site-header">
         <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
         <nav class="main-nav" aria-label="Navigation principale">
-            <a href="/#selection">La collection</a>
-            <a href="/#selection">Nouveautés</a>
+            <a href="/catalogue">La collection</a>
+            <a href="/produit">Un produit</a>
             <a href="/about" aria-current="page">Notre histoire</a>
+            <a href="/connexion">Connexion</a>
+            <a href="/inscription">Créer un compte</a>
         </nav>
-        <div class="header-actions">
-            <a href="/#selection">Rechercher</a>
-            <a href="/#selection">Panier <span class="bag-count">0</span></a>
-        </div>
     </header>
 
     <main>

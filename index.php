@@ -34,6 +34,8 @@ if ($match !== false && is_callable($match['target'])) { // $match['target] == '
     http_response_code(404);
     erreur();
 }
+
+// La fonction accueil(), est une fonction qui va afficher le fichier views/accueil.php
 function accueil() {
     require_once(__DIR__ . "/views/accueil.php");
 }
@@ -42,7 +44,9 @@ function about() {
     require_once(__DIR__ . "/views/about.php");
 }
 
+// catalogue() est la fonction qui va s'exécuter quand on va aller dans /catalogue
 function catalogue() {
+    $produits = require_once(__DIR__."/data/produits.php");
     require_once(__DIR__ . "/views/catalogue.php");
 }
 
