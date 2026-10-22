@@ -16,8 +16,14 @@ $isHomePage = $currentPath === '/';
         <a href="/catalogue" <?= $currentPath === '/catalogue' ? 'aria-current="page"' : '' ?>>La collection</a>
         <a href="/produit/0" <?= str_starts_with($currentPath, '/produit/') ? 'aria-current="page"' : '' ?>>Un produit</a>
         <a href="/about" <?= $currentPath === '/about' ? 'aria-current="page"' : '' ?>>Notre histoire</a>
+        <!-- isset verifie si la variable donnée en parametre existe -->
+        <?php if (isset($_SESSION['is_authenticated'])) :?>
+            <a aria-current="page">Bonjour <?= $_SESSION['user_email'] ?></a>
+            <a href="/deconnexion" aria-current="page">Déconnexion</a>
+        <?php else : ?>
         <a href="/connexion" <?= $currentPath === '/connexion' ? 'aria-current="page"' : '' ?>>Connexion</a>
         <a href="/inscription" <?= $currentPath === '/inscription' ? 'aria-current="page"' : '' ?>>Créer un compte</a>
+        <?php endif; ?>
     </nav>
     <?php if ($isHomePage) : ?>
         <div class="header-actions">

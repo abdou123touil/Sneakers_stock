@@ -1,4 +1,7 @@
 <?php
+// Ci dessous, je déclare la session ouverte
+session_start();
+
 // FICHIER_UTILISATEUR est une variable qui est égal au chemin du fichier data/utilisateur
 // ATTENTION : A ne pas confondre avec require_once(__DIR__.'/data/utilisateurs.php');
 // Avec require_once on importe le tableau
@@ -29,6 +32,8 @@ $router->map('GET', '/catalogue', 'catalogue');
 $router->map('GET', '/connexion', 'login');
 $router->map('GET', '/inscription', 'register');
 
+$router->map('GET', '/deconnexion', 'deconnexion');
+
 // C'est ici que je vais gérer l'authentification
 $router->map('POST', '/auth', 'authentification');
 
@@ -49,6 +54,13 @@ if ($match !== false && is_callable($match['target'])) { // $match['target] == '
     erreur();
 }
 
+function deconnexion() {
+    session_unset();
+    // print_r($_SESSION);
+    require_once(__DIR__ . "/views/accueil.php");
+}
+
+
 // La fonction accueil(), est une fonction qui va afficher le fichier views/accueil.php
 function accueil() {
     require_once(__DIR__ . "/views/accueil.php");
@@ -60,6 +72,7 @@ function about() {
 
 // catalogue() est la fonction qui va s'exécuter quand on va aller dans /catalogue
 function catalogue() {
+    print_r($_SESSION);
     $produits = require_once(__DIR__."/data/produits.php");
     require_once(__DIR__ . "/views/catalogue.php");
 }
@@ -88,11 +101,17 @@ function authentification() {
     echo "<br>";
     // print_r($_SERVER);
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        print_r($_POST);
         $users = require_once(__DIR__."/data/utilisateurs.php");
+        // Je rentre dans ce if, qui si l'auth a bien fonctionné
         if (isAuthable($_POST, $users) == true) {
             echo "Ca marche !";
+            // $_SESSION 
+            $_SESSION['is_authenticated'] = true;
+            $_SESSION['user_email'] = $_POST['email'];
+            // print_r($_SESSION);
+            header("Location: /catalogue"); // Je redirige l'user sur la page catalogue lorsqu'il est authentifié
         } else {
+            header("Location: /connexion"); // Je redirige l'user sur la page connexion lorsqu'il n'est pas authentifié
             echo "Ca ne marche pas !";
         }
     }
