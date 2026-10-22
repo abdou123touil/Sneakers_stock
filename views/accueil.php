@@ -409,28 +409,7 @@
     </style>
 </head>
 <body>
-    <div class="announcement">Livraison offerte dès 120 € <span>—</span> retours gratuits sous 30 jours</div>
-    <header class="site-header">
-        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
-            <svg width="21" height="17" viewBox="0 0 21 17" fill="none" aria-hidden="true">
-                <path d="M1 1.5h19M1 8.5h19M1 15.5h19" stroke="currentColor" stroke-width="1.5"/>
-            </svg>
-        </button>
-        <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <nav class="main-nav" aria-label="Navigation principale">
-            <a href="/catalogue">La collection</a>
-            <a href="/produit">Un produit</a>
-            <a href="/about">Notre histoire</a>
-            <a href="/connexion">Connexion</a>
-            <a href="/inscription">Créer un compte</a>
-        </nav>
-        <div class="header-actions">
-            <a href="#selection">Rechercher</a>
-            <a class="bag-link" href="#selection" aria-label="Panier, 0 article">
-                Panier <span class="bag-count" aria-live="polite">0</span>
-            </a>
-        </div>
-    </header>
+    <?php require __DIR__ . '/navbar.php'; ?>
 
     <main>
         <section class="hero" id="collection">
@@ -522,15 +501,7 @@
         </section>
     </main>
 
-    <footer>
-        <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <span>© 2026 Sneakstock. Fait pour les passionnés.</span>
-        <nav class="footer-links" aria-label="Liens de pied de page">
-            <a href="#collection">Instagram</a>
-            <a href="#histoire">Contact</a>
-            <a href="#selection">FAQ</a>
-        </nav>
-    </footer>
+    <?php require __DIR__ . '/footer.php'; ?>
 
     <script>
         const menuToggle = document.querySelector('.menu-toggle');

@@ -55,16 +55,7 @@
     </style>
 </head>
 <body>
-    <div class="announcement">Livraison offerte dès 120 € <span>—</span> retours gratuits sous 30 jours</div>
-    <header>
-        <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <nav class="main-nav" aria-label="Navigation principale">
-            <a href="/catalogue">La collection</a>
-            <a href="/produit">Un produit</a>
-            <a href="/about">Notre histoire</a>
-            <a href="/inscription">Créer un compte</a>
-        </nav>
-    </header>
+    <?php require __DIR__ . '/navbar.php'; ?>
     <main>
         <section class="form-side">
             <div class="form-content">
@@ -97,7 +88,7 @@
             <div class="visual-caption"><strong>Retrouve tes paires préférées.</strong><span>La sélection Sneakstock est toujours là.</span></div>
         </aside>
     </main>
-    <footer><a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a><span>© 2026 Sneakstock. Fait pour les passionnés.</span></footer>
+    <?php require __DIR__ . '/footer.php'; ?>
     <script>
         const passwordInput = document.querySelector('#password');
         const passwordToggle = document.querySelector('.password-toggle');

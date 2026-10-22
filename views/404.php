@@ -35,17 +35,7 @@
     </style>
 </head>
 <body>
-    <div class="announcement">Livraison offerte dès 120 € <span>—</span> retours gratuits sous 30 jours</div>
-    <header>
-        <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <nav class="main-nav" aria-label="Navigation principale">
-            <a href="/catalogue">La collection</a>
-            <a href="/produit">Un produit</a>
-            <a href="/about">Notre histoire</a>
-            <a href="/connexion">Connexion</a>
-            <a href="/inscription">Créer un compte</a>
-        </nav>
-    </header>
+    <?php require __DIR__ . '/navbar.php'; ?>
     <main>
         <div class="error-content">
             <p class="error-code" aria-label="Erreur 404">404</p>
@@ -55,9 +45,6 @@
             <a class="button" href="/">Retour à l'accueil <span aria-hidden="true">↗</span></a>
         </div>
     </main>
-    <footer>
-        <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <span>© 2026 Sneakstock. Fait pour les passionnés.</span>
-    </footer>
+    <?php require __DIR__ . '/footer.php'; ?>
 </body>
 </html>

@@ -65,17 +65,7 @@
     </style>
 </head>
 <body>
-    <div class="announcement">Livraison offerte dès 120 € <span>—</span> retours gratuits sous 30 jours</div>
-    <header>
-        <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <nav class="main-nav" aria-label="Navigation principale">
-            <a href="/catalogue" aria-current="page">La collection</a>
-            <a href="/about">Notre histoire</a>
-            <a href="/produit">Un produit</a>
-            <a href="/connexion">Connexion</a>
-            <a href="/inscription">Créer un compte</a>
-        </nav>
-    </header>
+    <?php require __DIR__ . '/navbar.php'; ?>
     <main>
         <p class="eyebrow">La sélection Sneakstock</p>
         <h1>La collection.</h1>
@@ -99,14 +89,14 @@
         <p class="result-count" aria-live="polite"><span id="result-number">8</span> paires à découvrir</p>
         <section class="product-grid" aria-label="Sneakers disponibles">
             <?php foreach($produits as $produit) :?>
-            <a class="product-card" data-category="<?= $produit["categorie"] ?>" data-price="<?= $produit["prix"] ?>" href="/produit">
+            <a class="product-card" data-category="<?= $produit["categorie"] ?>" data-price="<?= $produit["prix"] ?>" href="/produit/<?= $produit["id"] - 1 ?>">
                 <div class="product-image"><img src="<?= $produit["image"] ?>" alt="<?= $produit["nom"] ?>" loading="lazy"><span class="product-label"><?= $produit["label"] ?></span></div>
                 <div class="product-info"><div><h2><?= $produit["nom"] ?></h2><p><?= $produit["coloris"] ?></p></div><span class="price"><?= $produit["prix"] ?> €</span></div>
             </a>
             <?php endforeach; ?>
         </section>
     </main>
-    <footer><a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a><span>© 2026 Sneakstock. Fait pour les passionnés.</span><a href="/inscription">Créer un compte</a></footer>
+    <?php require __DIR__ . '/footer.php'; ?>
     <style>.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }</style>
     <script>
         const grid = document.querySelector('.product-grid');

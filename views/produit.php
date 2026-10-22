@@ -83,17 +83,7 @@
     </style>
 </head>
 <body>
-    <div class="announcement">Livraison offerte dès 120 € <span>—</span> retours gratuits sous 30 jours</div>
-    <header>
-        <a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a>
-        <nav class="main-nav" aria-label="Navigation principale">
-            <a href="/">Accueil</a>
-            <a href="/catalogue">La collection</a>
-            <a href="/about">Notre histoire</a>
-            <a href="/connexion">Connexion</a>
-            <a href="/inscription">Créer un compte</a>
-        </nav>
-    </header>
+    <?php require __DIR__ . '/navbar.php'; ?>
     <main>
         <nav class="breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>/</span><a href="/catalogue">La collection</a><span>/</span><span aria-current="page"><?= $produit["nom"] ?></span></nav>
         <section class="product-layout">
@@ -141,7 +131,7 @@
         </section>
         <section class="related"><h2>Envie d'explorer ?</h2><a class="related-link" href="/catalogue">Retour à la collection <span aria-hidden="true">↗</span></a></section>
     </main>
-    <footer><a class="brand" href="/" aria-label="Sneakstock, accueil">SNEAK<span class="brand-mark">STOCK</span></a><span>© 2026 Sneakstock. Fait pour les passionnés.</span><a href="/inscription">Créer un compte</a></footer>
+    <?php require __DIR__ . '/footer.php'; ?>
     <style>.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }</style>
     <script>
         const mainImage = document.querySelector('#main-image');
