@@ -95,26 +95,26 @@
         </nav>
     </header>
     <main>
-        <nav class="breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>/</span><a href="/catalogue">La collection</a><span>/</span><span aria-current="page">Air Max 90</span></nav>
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>/</span><a href="/catalogue">La collection</a><span>/</span><span aria-current="page"><?= $produit["nom"] ?></span></nav>
         <section class="product-layout">
             <div class="gallery">
                 <div class="gallery-main">
-                    <img id="main-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="Air Max 90 rouge et blanche">
+                    <img id="main-image" src="<?= $produit["image"] ?>" alt="<?= $produit["nom"] ?>">
                     <span class="product-label">Best-seller</span>
                 </div>
                 <div class="thumbs" aria-label="Galerie du produit">
-                    <button class="thumb" type="button" aria-label="Voir la photo rouge" aria-pressed="true" data-src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" data-alt="Air Max 90 rouge et blanche"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=250&amp;q=75" alt=""></button>
-                    <button class="thumb" type="button" aria-label="Voir la photo blanche" aria-pressed="false" data-src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" data-alt="Sneaker blanche vue de près"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&amp;fit=crop&amp;w=250&amp;q=75" alt=""></button>
-                    <button class="thumb" type="button" aria-label="Voir la photo lifestyle" aria-pressed="false" data-src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" data-alt="Sneaker lifestyle portée"><img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&amp;fit=crop&amp;w=250&amp;q=75" alt=""></button>
-                    <button class="thumb" type="button" aria-label="Voir la photo rétro" aria-pressed="false" data-src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" data-alt="Sneaker rétro en détail"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&amp;fit=crop&amp;w=250&amp;q=75" alt=""></button>
+                    <button class="thumb" type="button" aria-label="Voir la photo rouge" aria-pressed="true" data-src="<?= $produit["image"] ?>" data-alt="<?= $produit["nom"] ?>"><img src="<?= $produit["image"] ?>" alt=""></button>
+                    <button class="thumb" type="button" aria-label="Voir la photo blanche" aria-pressed="false" data-src="<?= $produit["image"] ?>" data-alt="Sneaker blanche vue de près"><img src="<?= $produit["image"] ?>" alt=""></button>
+                    <button class="thumb" type="button" aria-label="Voir la photo lifestyle" aria-pressed="false" data-src="<?= $produit["image"] ?>" data-alt="Sneaker lifestyle portée"><img src="<?= $produit["image"] ?>" alt=""></button>
+                    <button class="thumb" type="button" aria-label="Voir la photo rétro" aria-pressed="false" data-src="<?= $produit["image"] ?>" data-alt="Sneaker rétro en détail"><img src="<?= $produit["image"] ?>" alt=""></button>
                 </div>
             </div>
             <div class="product-details">
                 <p class="eyebrow">Le classique revisité</p>
-                <h1>Air Max 90</h1>
-                <p class="subtitle">Red / White</p>
-                <div class="price-line"><span class="price">149 €</span><span class="stock">En stock</span></div>
-                <p class="description">Un classique qui ne passe pas inaperçu. La Air Max 90 associe une silhouette emblématique à un confort pensé pour le quotidien.</p>
+                <h1><?= $produit["nom"] ?></h1>
+                <p class="subtitle"><?= $produit["coloris"] ?></p>
+                <div class="price-line"><span class="price"><?= $produit["prix"] ?> €</span><span class="stock">En stock</span></div>
+                <p class="description"><?= $produit["description"] ?></p>
                 <form action="#" method="post">
                     <div class="size-heading"><label>Choisis ta taille</label><a href="#">Guide des tailles</a></div>
                     <div class="size-grid" role="group" aria-label="Taille">

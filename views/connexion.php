@@ -71,7 +71,7 @@
                 <p class="eyebrow">Content de te revoir</p>
                 <h1>On remet ça ?</h1>
                 <p class="intro">Connecte-toi pour retrouver tes paires préférées et ta sélection.</p>
-                <form action="#" method="post">
+                <form action="/auth" method="post">
                     <div class="field">
                         <label for="email">Adresse e-mail</label>
                         <input id="email" name="email" type="email" autocomplete="email" placeholder="alex@exemple.fr" required>

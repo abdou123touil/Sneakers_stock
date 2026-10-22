@@ -71,7 +71,7 @@
                 <p class="eyebrow">Bienvenue dans le club</p>
                 <h1>Crée ton compte.</h1>
                 <p class="intro">Inscris-toi pour retrouver tes coups de cœur et ne rien manquer des nouvelles sorties.</p>
-                <form action="#" method="post">
+                <form action="/register" method="post">
                     <div class="field">
                         <label for="name">Nom complet</label>
                         <input id="name" name="name" type="text" autocomplete="name" placeholder="Alex Martin" required>
